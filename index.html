@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="shortcut icon" href="favicon.png" />
+  </head>
+  <body>
+    <div class="everything">
+      <div id="time" class="time"></div>
+      <form action="https://duckduckgo.com/" method="GET">
+        <input
+          autofocus
+          name="q"
+          class="search"
+          type="search"
+          id="search-bar-input"
+          placeholder=""
+        />
+      </form>
+      <div class="box">
+        <div class="link">
+          <ul>
+            <li><a href="https://github.com">github</a></li>
+            <li><a href="https://dev.to">dev</a></li>
+            <li><a href="https://stackoverflow.com/">stackoverflow</a></li>
+            <li><a href="https://reddit.com">reddit</a></li>
+          </ul>
+        </div>
+        <div class="link">
+          <ul>
+            <li><a href="https://youtube.com">youtube</a></li>
+            <li><a href="https://soundcloud.com/">soundcloud</a></li>
+            <li><a href="https://meet.google.com">meet</a></li>
+            <li><a href="https://flathub.org/">flathub</a></li>
+          </ul>
+        </div>
+        <div class="link">
+          <ul>
+            <li><a href="https://www.pythoncheatsheet.org/">python</a></li>
+            <li><a href="https://doc.rust-lang.org/book/">rust</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/">mdn</a></li>
+            <li><a href="https://rosepinetheme.com/">rose pine</a></li>
+          </ul>
+        </div>
+        <!-- Feel free to add more divs here -->
+      </div>
+    </div>
+    <script>
+      function updateClock() {
+        let date = new Date();
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let secound = date.getSeconds()
+        let ampm = hours >= 12 ? "pm" : "am";
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        secound = secound < 10 ? "0" + secound : secound;
+        let time = hours + ":" + minutes + ":" + secound + " " + ampm;
+        document.getElementById("time").innerHTML = time;
+        setTimeout(updateClock, 1000);
+      }
+
+      updateClock();
+    </script>
+  </body>
+</html>
